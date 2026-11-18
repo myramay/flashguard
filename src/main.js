@@ -98,10 +98,15 @@ function typeLabel(seg) {
   return seg.type === 'red' ? 'Red flash' : 'General flash (light and dark)';
 }
 
+// One format everywhere: "6", "6.5" (never 6 in one place and 7 in another).
+function formatFps(n) {
+  return String(Math.round(n * 2) / 2);
+}
+
 function draftDescription(seg) {
   const where = seg.areaPercent >= 75 ? 'the whole screen' : seg.areaPercent >= 40 ? 'a large part of the screen' : 'part of the screen';
   const what = seg.type === 'red' ? 'flashes bright red' : 'flashes between light and dark';
-  return `${where[0].toUpperCase()}${where.slice(1)} ${what} quickly, about ${Math.round(seg.flashesPerSecond)} times a second.`;
+  return `${where[0].toUpperCase()}${where.slice(1)} ${what} quickly, about ${formatFps(seg.flashesPerSecond)} times a second.`;
 }
 
 function segmentAt(t, lead = 0) {
@@ -251,7 +256,7 @@ function renderResults() {
       <h4>Part ${i + 1}: ${range}</h4>
       <dl>
         <div><dt>Type</dt><dd>${typeLabel(seg)}</dd></div>
-        <div><dt>Flashes per second (highest)</dt><dd>${seg.flashesPerSecond.toFixed(1)}</dd></div>
+        <div><dt>Flashes per second (highest)</dt><dd>${formatFps(seg.flashesPerSecond)}</dd></div>
         <div><dt>Screen affected</dt><dd>${seg.areaPercent}%</dd></div>
       </dl>
       <button type="button" class="btn btn-outline btn-sm" data-go="${i}"><i data-lucide="play"></i> Go to this part (stays paused)</button>
@@ -304,7 +309,7 @@ function guard() {
   if (seg && !state.acknowledged.has(seg.id)) {
     els.preview.pause();
     pendingSeg = seg;
-    els.dialogDesc.textContent = `The part from ${formatRange(seg)} has fast flashing (${typeLabel(seg).toLowerCase()}, about ${Math.round(seg.flashesPerSecond)} flashes a second). It could trigger a seizure in some people.`;
+    els.dialogDesc.textContent = `The part from ${formatRange(seg)} has fast flashing (${typeLabel(seg).toLowerCase()}, about ${formatFps(seg.flashesPerSecond)} flashes a second). It could trigger a seizure in some people.`;
     els.dialog.showModal();
   }
 }

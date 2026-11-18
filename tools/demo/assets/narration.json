@@ -1,0 +1,146 @@
+[
+ {
+  "scene": "title",
+  "index": 0,
+  "file": "voice/title-0.wav",
+  "duration": 4.479792
+ },
+ {
+  "scene": "problem",
+  "index": 0,
+  "file": "voice/problem-0.wav",
+  "duration": 3.363167
+ },
+ {
+  "scene": "problem",
+  "index": 1,
+  "file": "voice/problem-1.wav",
+  "duration": 3.458208
+ },
+ {
+  "scene": "problem",
+  "index": 2,
+  "file": "voice/problem-2.wav",
+  "duration": 3.751458
+ },
+ {
+  "scene": "problem",
+  "index": 3,
+  "file": "voice/problem-3.wav",
+  "duration": 7.151625
+ },
+ {
+  "scene": "upload",
+  "index": 0,
+  "file": "voice/upload-0.wav",
+  "duration": 4.819583
+ },
+ {
+  "scene": "upload",
+  "index": 1,
+  "file": "voice/upload-1.wav",
+  "duration": 2.86
+ },
+ {
+  "scene": "checking",
+  "index": 0,
+  "file": "voice/checking-0.wav",
+  "duration": 2.701917
+ },
+ {
+  "scene": "results",
+  "index": 0,
+  "file": "voice/results-0.wav",
+  "duration": 7.067417
+ },
+ {
+  "scene": "results",
+  "index": 1,
+  "file": "voice/results-1.wav",
+  "duration": 7.078
+ },
+ {
+  "scene": "results",
+  "index": 2,
+  "file": "voice/results-2.wav",
+  "duration": 2.972583
+ },
+ {
+  "scene": "guard",
+  "index": 0,
+  "file": "voice/guard-0.wav",
+  "duration": 7.245042
+ },
+ {
+  "scene": "describe",
+  "index": 0,
+  "file": "voice/describe-0.wav",
+  "duration": 4.267875
+ },
+ {
+  "scene": "export",
+  "index": 0,
+  "file": "voice/export-0.wav",
+  "duration": 1.658667
+ },
+ {
+  "scene": "export",
+  "index": 1,
+  "file": "voice/export-1.wav",
+  "duration": 6.780083
+ },
+ {
+  "scene": "export",
+  "index": 2,
+  "file": "voice/export-2.wav",
+  "duration": 3.205792
+ },
+ {
+  "scene": "compare",
+  "index": 0,
+  "file": "voice/compare-0.wav",
+  "duration": 3.779417
+ },
+ {
+  "scene": "compare",
+  "index": 1,
+  "file": "voice/compare-1.wav",
+  "duration": 2.28175
+ },
+ {
+  "scene": "warning",
+  "index": 0,
+  "file": "voice/warning-0.wav",
+  "duration": 5.330417
+ },
+ {
+  "scene": "inclusive",
+  "index": 0,
+  "file": "voice/inclusive-0.wav",
+  "duration": 2.425
+ },
+ {
+  "scene": "inclusive",
+  "index": 1,
+  "file": "voice/inclusive-1.wav",
+  "duration": 6.997542
+ },
+ {
+  "scene": "inclusive",
+  "index": 2,
+  "file": "voice/inclusive-2.wav",
+  "duration": 2.411292
+ },
+ {
+  "scene": "honest",
+  "index": 0,
+  "file": "voice/honest-0.wav",
+  "duration": 8.279333
+ },
+ {
+  "scene": "close",
+  "index": 0,
+  "file": "voice/close-0.wav",
+  "duration": 2.811042
+ }
+]

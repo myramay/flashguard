@@ -1,0 +1,138 @@
+{
+  "voice": "Samantha",
+  "rate": 178,
+  "scenes": [
+    {
+      "id": "title",
+      "visual": { "type": "title", "title": "FlashGuard", "subtitle": "Every student can watch the lesson." },
+      "lines": [
+        { "say": "This is FlashGuard. It helps teachers make sure every student can watch the lesson." }
+      ]
+    },
+    {
+      "id": "problem",
+      "visual": {
+        "type": "text",
+        "kicker": "The learner",
+        "title": "A student with photosensitive epilepsy",
+        "bullets": [
+          "Task: watch the assigned chemistry demo video",
+          "Risk: fast flashing, especially red, can trigger a seizure",
+          "Today: told to look away, or excused, and misses the content"
+        ]
+      },
+      "lines": [
+        { "say": "Imagine a high school student with photosensitive epilepsy." },
+        { "say": "Their chemistry teacher assigns a flame test video for homework." },
+        { "say": "Fast flashing, especially bright red, can trigger a seizure." },
+        { "say": "Teachers have no easy way to screen a video, so the student is told to look away, or is excused, and misses the lesson." }
+      ]
+    },
+    {
+      "id": "upload",
+      "visual": { "type": "shot", "src": "s-upload.png", "label": "1. Choose a video" },
+      "lines": [
+        { "say": "FlashGuard runs entirely in the browser. The video never leaves the teacher's device." },
+        { "say": "You drag in a video, or try the built in sample." }
+      ]
+    },
+    {
+      "id": "checking",
+      "visual": { "type": "shot", "src": "s-checking.png", "label": "2. FlashGuard checks it" },
+      "lines": [
+        { "say": "It looks at thirty frames for every second of video." }
+      ]
+    },
+    {
+      "id": "results",
+      "visual": { "type": "shot", "src": "s-results.png", "label": "3. Results" },
+      "lines": [
+        { "say": "It applies the WCAG rule: no more than three flashes in any one second, plus the stricter rule for red flashes." },
+        { "say": "Here it found one part, from five to seven seconds, flashing red six times a second across almost the whole screen.", "caption": "Here it found one part, from 0:05 to 0:07, flashing red 6 times a second across almost the whole screen." },
+        { "say": "The timeline marks it, and the list gives the details." }
+      ]
+    },
+    {
+      "id": "guard",
+      "visual": { "type": "shot", "src": "s-dialog.png", "label": "Safe preview" },
+      "lines": [
+        { "say": "The preview never plays on its own. If the teacher presses play, FlashGuard stops before the flashing part and asks first." }
+      ]
+    },
+    {
+      "id": "describe",
+      "visual": { "type": "shot", "src": "s-describe.png", "label": "4. Describe it" },
+      "lines": [
+        { "say": "Next, the teacher describes what happens on screen, in their own words." }
+      ]
+    },
+    {
+      "id": "export",
+      "visual": { "type": "shot", "src": "s-export.png", "label": "5. Export a safe version" },
+      "lines": [
+        { "say": "Then they export a safe version." },
+        { "say": "Pause and describe swaps the flashing for a still, dimmed frame, with the description as a caption. The sound keeps playing." },
+        { "say": "FlashGuard checks the new file again, and it passes." }
+      ]
+    },
+    {
+      "id": "compare",
+      "visual": { "type": "compare", "still": "sample.webm", "stillAt": 6.033, "video": "safe.webm", "videoFrom": 3.0, "videoTo": 9.5 },
+      "minDuration": 9,
+      "lines": [
+        { "say": "On the left is a still from the original. We are not showing it flashing." },
+        { "say": "On the right, the safe version is playing." }
+      ]
+    },
+    {
+      "id": "warning",
+      "visual": { "type": "shot", "src": "s-warning.png", "label": "6. Share a warning" },
+      "lines": [
+        { "say": "Finally, FlashGuard writes a content warning the teacher can paste wherever they share the video." }
+      ]
+    },
+    {
+      "id": "inclusive",
+      "visual": {
+        "type": "text",
+        "kicker": "Built to be accessible",
+        "title": "The app never flashes either",
+        "bullets": [
+          "No animation anywhere in the interface",
+          "Works fully by keyboard; built for screen readers",
+          "0 axe violations, light and dark mode",
+          "This video was checked with FlashGuard: it passes"
+        ]
+      },
+      "lines": [
+        { "say": "The app itself never animates or flashes." },
+        { "say": "It works fully by keyboard, it is built for screen readers, and it passed automated accessibility checks in light and dark mode." },
+        { "say": "And this video was checked with FlashGuard too." }
+      ]
+    },
+    {
+      "id": "honest",
+      "visual": {
+        "type": "text",
+        "kicker": "Limits",
+        "title": "A screening tool, not a certification",
+        "bullets": [
+          "Simplified version of the WCAG 2.3.1 and red-flash rules",
+          "No stripe or pattern detection yet",
+          "Tested so far on synthetic clips only"
+        ]
+      },
+      "lines": [
+        { "say": "FlashGuard is a simplified screening tool, not a medical or broadcast certification, and so far it has only been tested on synthetic clips." }
+      ]
+    },
+    {
+      "id": "close",
+      "visual": { "type": "title", "title": "FlashGuard", "subtitle": "flashguard-sooty.vercel.app", "small": "Built with Claude Code" },
+      "minDuration": 6,
+      "lines": [
+        { "say": "FlashGuard. Every student can watch the lesson." }
+      ]
+    }
+  ]
+}

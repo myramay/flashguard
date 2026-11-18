@@ -3,3 +3,6 @@ dist
 .DS_Store
 .vercel
 .gstack
+demo/*.webm
+tools/demo/assets/voice/
+tools/demo/assets/*.webm

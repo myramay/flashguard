@@ -67,6 +67,18 @@ Last results (headless Chromium 158, Apple Silicon):
 | Exported file | plays, frozen + captioned, 0 leaked flash frames, audio kept, re-check passes |
 | axe | 0 violations on every screen, light and dark |
 
+## Demo video
+
+`demo/flashguard-demo.webm` (2:06, 1920×1080, voiceover + burned-in captions; `demo/flashguard-demo.srt` / `.vtt` for YouTube) is generated, not recorded by hand:
+
+```bash
+python3 tools/demo/make-narration.py   # macOS `say` → tools/demo/assets/voice/*.wav
+npm run dev                            # in another terminal
+tools/demo/record.sh                   # renders tools/demo/compositor.html in real time
+```
+
+The script and captions live in `tools/demo/script.json`. The original hazard clip only appears as a still frame, and the finished demo passes FlashGuard's own check (0 flashing parts).
+
 ## Known limitations
 
 - **Analysis is slow on long or high-resolution videos.** Every sampled frame is a seek: about 30–40 ms per frame at 720p, so a 10-minute lesson takes roughly 5–7 minutes to check. Playback-based sampling was faster but dropped frames even at 2×, which can hide flashes, so we kept seeking.

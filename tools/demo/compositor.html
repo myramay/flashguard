@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>FlashGuard demo compositor</title>
+    <style>
+      body { margin: 0; font: 14px system-ui; background: #eee; }
+      canvas { width: 960px; height: 540px; display: block; background: #fff; }
+      #status { padding: 8px; }
+    </style>
+  </head>
+  <body>
+    <!-- Dev tool: renders the 2-minute demo video. Open via `npm run dev`, then click Record. -->
+    <button id="record">Record</button>
+    <span id="status">loading…</span>
+    <canvas id="c" width="1920" height="1080"></canvas>
+    <script type="module" src="./compositor.js"></script>
+  </body>
+</html>

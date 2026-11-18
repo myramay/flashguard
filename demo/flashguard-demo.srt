@@ -1,0 +1,95 @@
+1
+00:00:00,850 --> 00:00:05,580
+This is FlashGuard. It helps teachers make sure every student can watch the lesson.
+
+2
+00:00:06,030 --> 00:00:09,643
+Imagine a high school student with photosensitive epilepsy.
+
+3
+00:00:09,743 --> 00:00:13,451
+Their chemistry teacher assigns a flame test video for homework.
+
+4
+00:00:13,551 --> 00:00:17,553
+Fast flashing, especially bright red, can trigger a seizure.
+
+5
+00:00:17,653 --> 00:00:25,054
+Teachers have no easy way to screen a video, so the student is told to look away, or is excused, and misses the lesson.
+
+6
+00:00:25,504 --> 00:00:30,574
+FlashGuard runs entirely in the browser. The video never leaves the teacher's device.
+
+7
+00:00:30,674 --> 00:00:33,784
+You drag in a video, or try the built in sample.
+
+8
+00:00:34,234 --> 00:00:37,186
+It looks at thirty frames for every second of video.
+
+9
+00:00:37,636 --> 00:00:44,953
+It applies the WCAG rule: no more than three flashes in any one second, plus the stricter rule for red flashes.
+
+10
+00:00:45,053 --> 00:00:52,381
+Here it found one part, from 0:05 to 0:07, flashing red 6 times a second across almost the whole screen.
+
+11
+00:00:52,481 --> 00:00:55,704
+The timeline marks it, and the list gives the details.
+
+12
+00:00:56,154 --> 00:01:03,649
+The preview never plays on its own. If the teacher presses play, FlashGuard stops before the flashing part and asks first.
+
+13
+00:01:04,099 --> 00:01:08,617
+Next, the teacher describes what happens on screen, in their own words.
+
+14
+00:01:09,067 --> 00:01:10,975
+Then they export a safe version.
+
+15
+00:01:11,075 --> 00:01:18,105
+Pause and describe swaps the flashing for a still, dimmed frame, with the description as a caption. The sound keeps playing.
+
+16
+00:01:18,205 --> 00:01:21,661
+FlashGuard checks the new file again, and it passes.
+
+17
+00:01:22,111 --> 00:01:26,141
+On the left is a still from the original. We are not showing it flashing.
+
+18
+00:01:26,241 --> 00:01:28,772
+On the right, the safe version is playing.
+
+19
+00:01:31,111 --> 00:01:36,692
+Finally, FlashGuard writes a content warning the teacher can paste wherever they share the video.
+
+20
+00:01:37,142 --> 00:01:39,817
+The app itself never animates or flashes.
+
+21
+00:01:39,917 --> 00:01:47,164
+It works fully by keyboard, it is built for screen readers, and it passed automated accessibility checks in light and dark mode.
+
+22
+00:01:47,264 --> 00:01:49,925
+And this video was checked with FlashGuard too.
+
+23
+00:01:50,375 --> 00:01:58,905
+FlashGuard is a simplified screening tool, not a medical or broadcast certification, and so far it has only been tested on synthetic clips.
+
+24
+00:01:59,355 --> 00:02:02,416
+FlashGuard. Every student can watch the lesson.
