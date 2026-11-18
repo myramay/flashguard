@@ -9,68 +9,95 @@
       content="FlashGuard checks lesson videos for flashing that can trigger seizures and makes a safer copy. Runs in your browser; videos never leave your device."
     />
     <meta name="color-scheme" content="light dark" />
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230f5f5a'/%3E%3Cpath d='M16 6l9 4v6c0 5-4 9-9 10-5-1-9-5-9-10v-6z' fill='%23fff'/%3E%3C/svg%3E" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23171717'/%3E%3Cpath d='M16 6l9 4v6c0 5-4 9-9 10-5-1-9-5-9-10v-6z' fill='%23fff'/%3E%3C/svg%3E" />
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to main content</a>
 
     <header class="site-header">
-      <div class="wrap header-inner">
+      <div class="container header-inner">
         <h1 class="logo">
-          <svg aria-hidden="true" width="28" height="28" viewBox="0 0 32 32"><rect width="32" height="32" rx="8" fill="currentColor"/><path d="M16 6l9 4v6c0 5-4 9-9 10-5-1-9-5-9-10v-6z" fill="var(--bg)"/></svg>
+          <span class="logo-mark"><i data-lucide="shield-check"></i></span>
           FlashGuard
         </h1>
-        <p class="tagline">Every student can watch the lesson.</p>
+        <nav class="header-nav" aria-label="Site">
+          <a href="#how" id="how-link" class="btn btn-ghost btn-sm">How it works</a>
+          <span class="pill"><i data-lucide="lock"></i> Runs on your device</span>
+        </nav>
       </div>
     </header>
 
-    <main id="main" class="wrap" tabindex="-1">
-      <!-- 1. Choose a video -->
-      <section id="intro" aria-labelledby="intro-heading">
-        <h2 id="intro-heading" class="page-title" tabindex="-1">Check a lesson video for flashing that can cause seizures</h2>
-        <p class="lead">
-          Some students have photosensitive epilepsy. Fast flashing in a video can trigger a seizure.
-          FlashGuard finds those parts, helps you describe them, and makes a safer copy.
-        </p>
-        <p class="privacy">
-          <strong>Your video stays on this device.</strong> Nothing is uploaded. All checking happens in this browser tab.
-        </p>
-
-        <div id="dropzone" class="dropzone">
-          <p class="drop-title">Drag a video file here</p>
-          <p class="drop-hint">MP4 or WebM. You can also choose a file or try our sample.</p>
-          <div class="actions">
-            <!-- Opened by the "Choose a video" button; never focused directly. -->
-            <input id="file-input" type="file" accept="video/mp4,video/webm,video/*" aria-label="Choose a video file" hidden />
-            <button id="choose-btn" type="button" class="btn primary">Choose a video</button>
-            <button id="sample-btn" type="button" class="btn secondary">Try a sample video</button>
-          </div>
-          <p id="file-help" class="small">
-            The sample is made in your browser. It has a calm part, a fast red flashing part (should fail),
-            and a slow white flashing part (should pass). You will not see it flash.
+    <main id="main" tabindex="-1">
+      <!-- 1. Choose a video (hero) -->
+      <section id="intro" class="hero" aria-labelledby="intro-heading">
+        <div class="container hero-inner">
+          <p class="pill pill-lg"><i data-lucide="sparkles"></i> Every student can watch the lesson.</p>
+          <h2 id="intro-heading" class="hero-title" tabindex="-1">Check lesson videos for flashing that can cause seizures</h2>
+          <p class="hero-lead">
+            Some students have photosensitive epilepsy. Fast flashing in a video can trigger a seizure.
+            FlashGuard finds those parts, helps you describe them, and makes a safer copy.
           </p>
+
+          <div id="dropzone" class="card beam-card dropzone">
+            <span class="drop-icon"><i data-lucide="upload"></i></span>
+            <p class="drop-title">Drag a video file here</p>
+            <p class="drop-hint">MP4 or WebM. You can also choose a file or try our sample.</p>
+            <div class="actions">
+              <!-- Opened by the "Choose a video" button; never focused directly. -->
+              <input id="file-input" type="file" accept="video/mp4,video/webm,video/*" aria-label="Choose a video file" hidden />
+              <button id="choose-btn" type="button" class="btn btn-primary btn-lg"><i data-lucide="file-video"></i> Choose a video</button>
+              <button id="sample-btn" type="button" class="btn btn-outline btn-lg"><i data-lucide="play"></i> Try a sample video</button>
+            </div>
+            <p id="file-help" class="small muted">
+              The sample is made in your browser. It has a calm part, a fast red flashing part (should fail),
+              and a slow white flashing part (should pass). You will not see it flash.
+            </p>
+          </div>
+          <p id="intro-error" class="alert alert-error" role="alert" hidden></p>
+
+          <p class="privacy-note"><i data-lucide="lock"></i> <span><strong>Your video stays on this device.</strong> Nothing is uploaded. All checking happens in this browser tab.</span></p>
+
+          <ul class="features" aria-label="What FlashGuard does">
+            <li class="card feature">
+              <span class="feature-icon"><i data-lucide="scan-eye"></i></span>
+              <h3>Find flashing</h3>
+              <p>Checks every second of video against the 3-flashes rule, including red flashes.</p>
+            </li>
+            <li class="card feature">
+              <span class="feature-icon"><i data-lucide="captions"></i></span>
+              <h3>Describe it</h3>
+              <p>Write what happens on screen. Your words become captions in the safe copy.</p>
+            </li>
+            <li class="card feature">
+              <span class="feature-icon"><i data-lucide="download"></i></span>
+              <h3>Share a safe copy</h3>
+              <p>Export a version with flashing paused or smoothed, plus a ready-made warning.</p>
+            </li>
+          </ul>
         </div>
-        <p id="intro-error" class="error" role="alert" hidden></p>
       </section>
 
       <!-- 2. Progress -->
-      <section id="working" aria-labelledby="working-heading" hidden>
-        <h2 id="working-heading" tabindex="-1">Checking your video</h2>
-        <p id="working-file" class="muted"></p>
-        <label for="progress" id="progress-label" class="progress-label">Starting…</label>
-        <progress id="progress" max="100" value="0"></progress>
-        <p class="small muted">Longer videos take longer. You can keep using other tabs, but keep this one open.</p>
-        <button id="cancel-btn" type="button" class="btn secondary">Cancel</button>
+      <section id="working" class="container narrow page-section" aria-labelledby="working-heading" hidden>
+        <div class="card card-pad">
+          <h2 id="working-heading" class="card-title" tabindex="-1">Checking your video</h2>
+          <p id="working-file" class="muted"></p>
+          <label for="progress" id="progress-label" class="progress-label">Starting…</label>
+          <progress id="progress" max="100" value="0"></progress>
+          <p class="small muted">Longer videos take longer. You can keep using other tabs, but keep this one open.</p>
+          <button id="cancel-btn" type="button" class="btn btn-outline">Cancel</button>
+        </div>
       </section>
 
       <!-- 3. Results -->
-      <section id="results" aria-labelledby="results-heading" hidden>
-        <h2 id="results-heading" tabindex="-1">Results</h2>
+      <section id="results" class="container narrow page-section" aria-labelledby="results-heading" hidden>
+        <h2 id="results-heading" class="section-title" tabindex="-1">Results</h2>
         <div id="verdict" class="verdict"></div>
 
-        <div class="player-card">
+        <div class="card card-pad player-card">
           <p id="preview-note" class="preview-note">
-            The video is paused. If you press play, we will warn you before any flashing part.
+            <i data-lucide="info"></i>
+            <span>The video is paused. If you press play, we will warn you before any flashing part.</span>
           </p>
           <video id="preview" controls preload="metadata" playsinline aria-describedby="preview-note"></video>
           <div class="timeline-wrap">
@@ -83,84 +110,90 @@
         </div>
 
         <section id="segments-section" aria-labelledby="segments-heading">
-          <h3 id="segments-heading">Flashing parts</h3>
+          <h3 id="segments-heading" class="section-title sm">Flashing parts</h3>
           <p class="muted">For each part, describe what happens on screen. Your words appear as captions in the safe version.</p>
           <ol id="segments" class="segments"></ol>
         </section>
 
-        <section id="export-section" class="card" aria-labelledby="export-heading">
-          <h3 id="export-heading">Make a safe version</h3>
-          <fieldset>
+        <section id="export-section" class="card card-pad" aria-labelledby="export-heading">
+          <h3 id="export-heading" class="card-title">Make a safe version</h3>
+          <fieldset class="mode-field">
             <legend>How should the flashing parts be handled?</legend>
-            <div class="radio">
-              <input type="radio" id="mode-freeze" name="mode" value="freeze" checked />
-              <label for="mode-freeze"><strong>Pause and describe</strong> (recommended)<br /><span class="muted">Shows a still, dimmed picture with your description as a caption. Sound keeps playing.</span></label>
+            <div class="segmented">
+              <label class="segmented-item">
+                <input type="radio" id="mode-freeze" name="mode" value="freeze" checked aria-describedby="mode-freeze-desc" />
+                <span>Pause and describe</span>
+              </label>
+              <label class="segmented-item">
+                <input type="radio" id="mode-smooth" name="mode" value="smooth" aria-describedby="mode-smooth-desc" />
+                <span>Reduce flashing</span>
+              </label>
             </div>
-            <div class="radio">
-              <input type="radio" id="mode-smooth" name="mode" value="smooth" />
-              <label for="mode-smooth"><strong>Reduce flashing</strong><br /><span class="muted">Keeps the motion but smooths out flashes and lowers contrast and colour. Your description is still shown.</span></label>
-            </div>
+            <p id="mode-freeze-desc" class="mode-desc muted" data-for="freeze"><strong>Recommended.</strong> Shows a still, dimmed picture with your description as a caption. Sound keeps playing.</p>
+            <p id="mode-smooth-desc" class="mode-desc muted" data-for="smooth">Keeps the motion but smooths out flashes and lowers contrast and colour. Your description is still shown.</p>
           </fieldset>
-          <button id="export-btn" type="button" class="btn primary">Export safe version</button>
+          <button id="export-btn" type="button" class="btn btn-primary btn-lg"><i data-lucide="download"></i> Export safe version</button>
           <div id="export-progress-wrap" hidden>
             <label for="export-progress" id="export-label" class="progress-label">Making the safe version…</label>
             <progress id="export-progress" max="100" value="0"></progress>
             <p class="small muted">This plays the video once in the background, so it takes about as long as the video. Keep this tab open.</p>
           </div>
           <p id="export-status" class="status-text"></p>
-          <a id="download-link" class="btn secondary" hidden>Download the safe version again</a>
+          <a id="download-link" class="btn btn-outline" hidden>Download the safe version again</a>
           <p id="recheck-status" class="status-text"></p>
         </section>
 
-        <section id="warning-section" class="card" aria-labelledby="warning-heading">
-          <h3 id="warning-heading">Content warning for students and families</h3>
-          <label for="warning-text">Paste this where you share the video:</label>
+        <section id="warning-section" class="card card-pad" aria-labelledby="warning-heading">
+          <h3 id="warning-heading" class="card-title">Content warning for students and families</h3>
+          <label for="warning-text" class="field-label">Paste this where you share the video:</label>
           <textarea id="warning-text" rows="3" readonly></textarea>
-          <button id="copy-btn" type="button" class="btn secondary">Copy content warning</button>
+          <button id="copy-btn" type="button" class="btn btn-outline"><i data-lucide="copy"></i> <span>Copy content warning</span></button>
         </section>
 
-        <p><button id="restart-btn" type="button" class="btn secondary">Check another video</button></p>
+        <p><button id="restart-btn" type="button" class="btn btn-ghost"><i data-lucide="rotate-ccw"></i> Check another video</button></p>
       </section>
 
-      <details id="how" class="card how">
-        <summary><h2>How it works</h2></summary>
-        <div class="how-body">
-          <p>
-            A <strong>flash</strong> is when part of the screen gets much brighter and then darker again (or the other way round).
-            Flashes that are <strong>bright red</strong> are checked separately, because red is more likely to cause seizures.
-          </p>
-          <p>
-            The international accessibility rule (WCAG 2.3.1) says: <strong>no more than 3 flashes in any one second</strong>,
-            unless the flashing area is small or the change in brightness is small.
-          </p>
-          <ol>
-            <li>FlashGuard looks at 30 pictures for every second of video.</li>
-            <li>It measures how bright each area of the screen is, and how strongly red it is.</li>
-            <li>It counts a flash when a quarter or more of the screen changes enough, then changes back.</li>
-            <li>Any one-second stretch with more than 3 flashes is marked as a flashing part.</li>
-          </ol>
-          <p class="muted small">
-            This is a simplified automatic check. It is a helpful first step, not a medical or legal guarantee.
-            If a video is important, also review it with a certified tool.
-          </p>
-        </div>
-      </details>
+      <div class="container narrow">
+        <details id="how" class="card how">
+          <summary><h2>How it works</h2></summary>
+          <div class="how-body">
+            <p>
+              A <strong>flash</strong> is when part of the screen gets much brighter and then darker again (or the other way round).
+              Flashes that are <strong>bright red</strong> are checked separately, because red is more likely to cause seizures.
+            </p>
+            <p>
+              The international accessibility rule (WCAG 2.3.1) says: <strong>no more than 3 flashes in any one second</strong>,
+              unless the flashing area is small or the change in brightness is small.
+            </p>
+            <ol>
+              <li>FlashGuard looks at 30 pictures for every second of video.</li>
+              <li>It measures how bright each area of the screen is, and how strongly red it is.</li>
+              <li>It counts a flash when a quarter or more of the screen changes enough, then changes back.</li>
+              <li>Any one-second stretch with more than 3 flashes is marked as a flashing part.</li>
+            </ol>
+            <p class="muted small">
+              This is a simplified automatic check. It is a helpful first step, not a medical or legal guarantee.
+              If a video is important, also review it with a certified tool.
+            </p>
+          </div>
+        </details>
+      </div>
 
       <div id="live" class="visually-hidden" role="status" aria-live="polite" aria-atomic="true"></div>
     </main>
 
     <dialog id="warn-dialog" aria-labelledby="warn-title" aria-describedby="warn-desc">
-      <h2 id="warn-title">Flashing ahead</h2>
+      <h2 id="warn-title"><i data-lucide="triangle-alert"></i> Flashing ahead</h2>
       <p id="warn-desc"></p>
       <div class="actions">
-        <button type="button" class="btn primary" data-action="skip">Skip this part</button>
-        <button type="button" class="btn secondary" data-action="watch">Watch it anyway</button>
-        <button type="button" class="btn secondary" data-action="stop">Stay paused</button>
+        <button type="button" class="btn btn-primary" data-action="skip">Skip this part</button>
+        <button type="button" class="btn btn-outline" data-action="watch">Watch it anyway</button>
+        <button type="button" class="btn btn-outline" data-action="stop">Stay paused</button>
       </div>
     </dialog>
 
     <footer class="site-footer">
-      <div class="wrap">
+      <div class="container">
         <p class="small muted">FlashGuard runs entirely in your browser. No video, audio or text leaves your device.</p>
       </div>
     </footer>

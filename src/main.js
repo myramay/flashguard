@@ -3,6 +3,9 @@ import { analyzeVideo } from './analyze.js';
 import { makeSampleVideo } from './sample.js';
 import { exportSafeVideo } from './export.js';
 import { formatRange, formatTime, fixDuration } from './video.js';
+import { renderIcons } from './icons.js';
+
+renderIcons();
 
 const $ = (sel) => document.querySelector(sel);
 const els = {
@@ -207,12 +210,12 @@ function renderResults() {
   els.verdict.className = `verdict ${pass ? 'pass' : 'fail'}`;
   if (pass) {
     els.verdict.innerHTML = `
-      <p class="verdict-title"><span aria-hidden="true">✓</span> Passes the flash check</p>
+      <p class="verdict-title"><i data-lucide="circle-check"></i> Passes the flash check</p>
       <p>We did not find any part with more than 3 flashes in one second.</p>
       <p class="small">This is an automatic, simplified check of WCAG 2.3.1, not a guarantee.</p>`;
   } else {
     els.verdict.innerHTML = `
-      <p class="verdict-title"><span aria-hidden="true">✕</span> Does not pass: ${n} flashing ${n === 1 ? 'part' : 'parts'} found</p>
+      <p class="verdict-title"><i data-lucide="circle-x"></i> Does not pass: ${n} flashing ${n === 1 ? 'part' : 'parts'} found</p>
       <p>${n === 1 ? 'This part has' : 'These parts have'} more than 3 flashes in one second, which can trigger seizures.
       Describe ${n === 1 ? 'it' : 'each one'} below, then export a safe version.</p>`;
   }
@@ -251,10 +254,10 @@ function renderResults() {
         <div><dt>Flashes per second (highest)</dt><dd>${seg.flashesPerSecond.toFixed(1)}</dd></div>
         <div><dt>Screen affected</dt><dd>${seg.areaPercent}%</dd></div>
       </dl>
-      <button type="button" class="btn secondary small-btn" data-go="${i}">Go to this part (stays paused)</button>
+      <button type="button" class="btn btn-outline btn-sm" data-go="${i}"><i data-lucide="play"></i> Go to this part (stays paused)</button>
       <label for="${descId}">What happens on screen in this part?</label>
       <textarea id="${descId}" rows="2" data-desc="${i}" aria-describedby="${descId}-hint"></textarea>
-      <p id="${descId}-hint" class="small muted">We wrote a first draft. Edit it to describe the lesson content, for example "The flame flashes bright green 4 times."</p>`;
+      <p id="${descId}-hint" class="small muted hint">We wrote a first draft. Edit it to describe the lesson content, for example "The flame flashes bright green 4 times."</p>`;
     li.querySelector('textarea').value = draftDescription(seg);
     li.querySelector('[data-go]').addEventListener('click', () => goToSegment(seg));
     els.segments.appendChild(li);
@@ -270,6 +273,7 @@ function renderResults() {
   els.exportBtn.disabled = false;
   updateWarningText();
 
+  renderIcons(els.results);
   show('results');
   announce(
     pass
@@ -408,9 +412,10 @@ els.copyBtn.addEventListener('click', async () => {
     els.warningText.select();
     document.execCommand('copy');
   }
-  els.copyBtn.textContent = 'Copied';
+  const copyLabel = els.copyBtn.querySelector('span');
+  copyLabel.textContent = 'Copied';
   announce('Content warning copied.');
-  setTimeout(() => (els.copyBtn.textContent = 'Copy content warning'), 2500);
+  setTimeout(() => (copyLabel.textContent = 'Copy content warning'), 2500);
 });
 
 els.restartBtn.addEventListener('click', () => {
@@ -422,4 +427,13 @@ els.restartBtn.addEventListener('click', () => {
 });
 
 // Debug hook for automated end-to-end checks.
+// Header link opens the "How it works" panel and moves focus to it.
+document.querySelector('#how-link').addEventListener('click', (e) => {
+  e.preventDefault();
+  const how = document.querySelector('#how');
+  how.open = true;
+  how.querySelector('summary').focus();
+  how.scrollIntoView({ block: 'start' });
+});
+
 window.__flashguard = state;
